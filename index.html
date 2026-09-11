@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>local-ai-worker – Local-First AI Worker & Obsidian RAG Agent</title>
+  <meta name="description" content="Autarker Go 1.22 Hintergrunddienst mit semantischer Obsidian-Vault RAG-Suche, Feedback-Lernschleife, CAD- & Bildschirmanalyse und Zero-Dummy-Security.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="header-brand">
+        <a href="https://benzjeremy.github.io/" class="breadcrumb-link">← benzjeremy.github.io</a>
+        <span class="brand-title">🧠 local-ai-worker <span class="brand-badge">v1.0</span></span>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#security" class="nav-link">Sicherheit</a></li>
+          <li><a href="#install" class="nav-link">Installation</a></li>
+          <li><a href="#about" class="nav-link">Über das Projekt</a></li>
+          <li><a href="https://github.com/benzjeremy/local-ai-worker" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.85rem;">GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-pill">
+      <span>🛡️ Version v1.0 • GNU GPL-3.0 • 100% Local-First Inferenz</span>
+    </div>
+    <h1 class="hero-title">
+      Der datenschutztreue <span class="gradient-text">Second Brain</span> KI-Mitarbeiter.
+    </h1>
+    <p class="hero-subtitle">
+      Autarker Go 1.22 Daemon für semantische Obsidian-Vault RAG-Suche (<a href="https://de.wikipedia.org/wiki/Okapi_BM25" target="_blank" rel="noopener">Okapi BM25</a>), Feedback-Lernschleifen, CAD- & Vision-Inspektion und Zero-Dummy-Security. Kein Cloud-Abfluss, vollständige Datenhoheit auf eigener Hardware.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#install" class="btn btn-primary">📦 v1.0 Herunterladen</a>
+      <a href="https://github.com/benzjeremy/local-ai-worker" target="_blank" rel="noopener" class="btn btn-secondary">Quellcode auf GitHub</a>
+    </div>
+
+    <div class="cmd-box">
+      <span>Quick Install:</span>
+      <code>go install github.com/benzjeremy/local-ai-worker@latest</code>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="content-section">
+    <div class="section-header">
+      <h2 class="section-title">Kernkompetenzen & Architektur</h2>
+      <p class="section-subtitle">Entwickelt für reibungslose Assistenz, absolute Privatsphäre und minimale Latenz.</p>
+    </div>
+
+    <div class="feature-grid">
+      <article class="feature-card">
+        <div class="f-icon">📚</div>
+        <h3 class="f-title">Obsidian Vault RAG</h3>
+        <p class="f-desc">Rekursiver Dateisystem-Scanner für Obsidian-Markdown-Archive. Automatischer In-Memory Okapi BM25 Volltext-Index mit Sub-Millisekunden-Reaktionszeit, Tag-Hierarchie (#level-...) und Frontmatter-Parsing.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="f-icon">🔄</div>
+        <h3 class="f-title">Feedback Learning Loop</h3>
+        <p class="f-desc">Korrekturen von Vorgesetzten und Mitarbeitern werden verschlüsselt im Vault persistiert. Bei künftigen Anfragen reichert das Modul LLM-Prompts dynamisch mit Few-Shot Alignment-Regeln an – stetiges Lernen ohne Retraining.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="f-icon">📐</div>
+        <h3 class="f-title">Vision & CAD-Inspektion</h3>
+        <p class="f-desc">Direkte Analyse technischer Zeichnungen, Toleranzmaße, Architektur-Diagramme und Screenshots über lokale Vision-Modelle (llava:7b). Spezialisierte Systemprompts für präzise Ingenieursauswertungen.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="f-icon">⚡</div>
+        <h3 class="f-title">Vordefinierte Assistenzaufgaben</h3>
+        <p class="f-desc">Automatisierte Workflows zur Notiz-Zusammenfassung (summarize), Erstellung faktenbasierter E-Mail-Entwürfe (email_draft), CAD-Datenextraktion und Graph-Hierarchie-Audits zur Einhaltung der Mindmap-Struktur.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="f-icon">🔒</div>
+        <h3 class="f-title">Zero-Dummy-Security</h3>
+        <p class="f-desc">AES-256-GCM Verschlüsselung aller persistierten Daten, PBKDF2 mit 100.000 Runden, 32-Byte CSPRNG API-Tokens, strikter Anti-DNS-Rebinding Host-Filter und Anti-CSRF Origin-Validierung.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="f-icon">🛡️</div>
+        <h3 class="f-title">Strict Localhost Isolation</h3>
+        <p class="f-desc">Keine Cloud-Calls, keine Telemetrie, keine externen Abhängigkeiten. Der Dienst bindet ausschließlich an 127.0.0.1:8081 und kommuniziert lokal mit Ollama auf 127.0.0.1:11434.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Security Section -->
+  <section id="security" class="content-section" style="background: rgba(14, 18, 27, 0.5); border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
+    <div class="section-header">
+      <h2 class="section-title">Sicherheit nach Jeremy Benz Standards</h2>
+      <p class="section-subtitle">Militärisch gehärtete Produktionssicherheit ab Werk – ausnahmslos in jeder Codezeile.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div style="background: var(--bg-surface); padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+        <h4 style="color: var(--accent-secondary); margin-bottom: 8px;">🔐 Kryptografie & Vault</h4>
+        <p style="font-size: 0.92rem; color: var(--text-muted);">Sämtliche Konfigurationsdaten, Feedback-Korrekturen und Notizen-Caches werden in <code>worker_vault.enc</code> mit AES-256-GCM und PBKDF2 (100.000 Iterationen, SHA-256, 32-Byte Salt) verschlüsselt.</p>
+      </div>
+      <div style="background: var(--bg-surface); padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+        <h4 style="color: var(--accent-secondary); margin-bottom: 8px;">🌐 Netzwerk-Immunität</h4>
+        <p style="font-size: 0.92rem; color: var(--text-muted);">Der HTTP-Host-Header wird strikt auf <code>127.0.0.1</code> / <code>localhost</code> geprüft. Fremde Domains oder manipulierter Host-Header führen zum sofortigen Abbruch mit HTTP 403 Forbidden.</p>
+      </div>
+      <div style="background: var(--bg-surface); padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+        <h4 style="color: var(--accent-secondary); margin-bottom: 8px;">🔑 Token-Authentifizierung</h4>
+        <p style="font-size: 0.92rem; color: var(--text-muted);">Jeder API-Aufruf erfordert ein 32-Byte CSPRNG Hex-Token im Header <code>X-Worker-Token</code>. Ungültige oder fehlende Tokens werden kompromisslos mit HTTP 401 Unauthorized abgewiesen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Installation Section -->
+  <section id="install" class="content-section">
+    <div class="section-header">
+      <h2 class="section-title">Multi-Platform Download & Setup</h2>
+      <p class="section-subtitle">Offizielle, reproduzierbare Binaries für Linux und Windows.</p>
+    </div>
+
+    <div class="install-grid">
+      <div class="install-card">
+        <div class="install-header">
+          <span class="install-platform">🐧 Linux (x86_64)</span>
+          <span class="brand-badge">tar.gz</span>
+        </div>
+        <div class="code-block">
+tar -xzf local-ai-worker-v1.0-linux.tar.gz
+sudo cp local-ai-worker /usr/local/bin/
+local-ai-worker --vault-dir ~/Projekte/obsidian_vault
+        </div>
+        <a href="https://github.com/benzjeremy/local-ai-worker/releases/download/v1.0/local-ai-worker-v1.0-linux.tar.gz" class="btn btn-primary" style="width: 100%; justify-content: center;">Download Linux Binary (.tar.gz)</a>
+      </div>
+
+      <div class="install-card">
+        <div class="install-header">
+          <span class="install-platform">🪟 Windows (x86_64)</span>
+          <span class="brand-badge">zip</span>
+        </div>
+        <div class="code-block">
+# ZIP-Archiv entpacken und starten:
+local-ai-worker.exe --vault-dir C:\Users\Username\Vault
+        </div>
+        <a href="https://github.com/benzjeremy/local-ai-worker/releases/download/v1.0/local-ai-worker-v1.0-windows.zip" class="btn btn-secondary" style="width: 100%; justify-content: center;">Download Windows Binary (.zip)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="content-section">
+    <div class="section-header">
+      <h2 class="section-title">Mitwirkende & Autoren</h2>
+      <p class="section-subtitle">Open-Source-Entwicklung unter der GNU General Public License v3.0.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-profile">
+          <div class="avatar-badge">JB</div>
+          <div>
+            <h3 class="profile-name">Jeremy Benz</h3>
+            <p class="profile-role">Projektgründer & Lead Developer</p>
+          </div>
+        </div>
+        <p class="about-text">
+          17 Jahre alt, aus Nordrhein-Westfalen (NRW), Deutschland. Leidenschaftlicher Softwareentwickler mit starkem Fokus auf Go (Golang), Systemprogrammierung, echte Sicherheit und ressourcenschonende Desktop-Lösungen.
+        </p>
+        <div class="chip-row">
+          <span class="chip">Go 1.22</span>
+          <span class="chip">Zero-Dummy-Security</span>
+          <span class="chip">Claude Code & Antigravity</span>
+          <span class="chip">© 2026 Jeremy Benz</span>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <div class="about-profile">
+          <div class="avatar-badge" style="background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);">📄</div>
+          <div>
+            <h3 class="profile-name">Freie & Open Source Software</h3>
+            <p class="profile-role">GNU General Public License v3.0</p>
+          </div>
+        </div>
+        <p class="about-text">
+          Dieses Projekt garantiert uneingeschränkte Softwarefreiheit. Der gesamte Quellcode ist öffentlich zugänglich, auditierbar und darf unter den Bedingungen der GPL-3.0 modifiziert und weitergegeben werden.
+        </p>
+        <div style="display: flex; gap: 12px; margin-top: 16px;">
+          <a href="https://github.com/benzjeremy/local-ai-worker/blob/main/LICENSE" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.88rem;">Lizenz (GPL-3.0)</a>
+          <a href="https://github.com/benzjeremy/local-ai-worker/releases" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.88rem;">Releases</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div>
+        <span>© 2026 Jeremy Benz • local-ai-worker</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/benzjeremy/local-ai-worker" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://github.com/benzjeremy/local-ai-worker/releases" target="_blank" rel="noopener">Releases</a></li>
+        <li><a href="https://github.com/benzjeremy/local-ai-worker/issues" target="_blank" rel="noopener">Fehler melden</a></li>
+        <li><a href="https://github.com/benzjeremy/local-ai-worker/blob/main/LICENSE" target="_blank" rel="noopener">Lizenz</a></li>
+        <li><a href="https://benzjeremy.github.io/impressum.html">Impressum</a></li>
+        <li><a href="https://benzjeremy.github.io/datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>
