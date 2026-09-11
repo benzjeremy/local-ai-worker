@@ -1,0 +1,29 @@
+# Binaries and build artifacts
+bin/
+dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+local-ai-worker
+
+# Encrypted Vault and runtime data
+data/
+*.enc
+*.db
+*.sqlite
+*.log
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# Test coverage
+coverage.txt
+coverage.html
+*.tar.gz
+*.zip
