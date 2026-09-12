@@ -1,10 +1,16 @@
 # 🧠 local-ai-worker
 
-[![Release](https://img.shields.io/badge/Release-v1.0-14b8a6.svg)](https://github.com/benzjeremy/local-ai-worker/releases)
+[![Release](https://img.shields.io/badge/Release-v1.0%20[Pre--Release]-14b8a6.svg)](https://github.com/benzjeremy/local-ai-worker/releases)
+[![Status: Pre-Release](https://img.shields.io/badge/Status-Pre--Release%20%2F%20WIP-orange.svg)](https://github.com/benzjeremy/local-ai-worker)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://github.com/benzjeremy/local-ai-worker/blob/main/LICENSE)
 [![Go: 1.22](https://img.shields.io/badge/Go-1.22-00ADD8.svg)](https://golang.org)
 [![Security: Zero-Dummy](https://img.shields.io/badge/Security-Zero--Dummy--Standard-10b981.svg)](https://benzjeremy.github.io/local-ai-worker/)
 [![Isolation: Localhost](https://img.shields.io/badge/Isolation-127.0.0.1%20Only-38bdf8.svg)](https://benzjeremy.github.io/)
+
+> [!IMPORTANT]
+> ### 🚧 Pre-Release / Active Development Notice
+> **This software is not yet finished and is actively being worked on.**  
+> All releases, builds, and versions are **Pre-Releases** (Work in Progress), even if originally tagged without a pre-release flag. RAG indices, vision analysis tools, and feedback loops are actively developed.
 
 > **Local-First AI Worker & Second Brain Assistant in Go 1.22**  
 > Radically local AI worker featuring semantic Obsidian Vault RAG search (Okapi BM25), supervisor feedback learning loop, CAD & screen inspection (Vision), and hardware-aware zero-cloud inference.
