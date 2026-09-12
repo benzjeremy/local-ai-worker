@@ -7,32 +7,32 @@
 [![Isolation: Localhost](https://img.shields.io/badge/Isolation-127.0.0.1%20Only-38bdf8.svg)](https://benzjeremy.github.io/)
 
 > **Local-First AI Worker & Second Brain Assistant in Go 1.22**  
-> Radikal lokaler KI-Mitarbeiter mit semantischer Obsidian-Vault RAG-Suche (Okapi BM25), Supervisor-Feedback-Lernschleife, CAD- & Bildschirmanalyse (Vision) sowie hardware-bewusster Zero-Cloud-Inferenz.
+> Radically local AI worker featuring semantic Obsidian Vault RAG search (Okapi BM25), supervisor feedback learning loop, CAD & screen inspection (Vision), and hardware-aware zero-cloud inference.
 
 ---
 
-## ⚡ Warum local-ai-worker?
+## ⚡ Why local-ai-worker?
 
-Unternehmen und Entwickler stehen oft vor dem Dilemma: Entweder werden vertrauliche interne Wissensdatenbanken (wie Obsidian Markdown Vaults) an US-Cloud-KIs gesendet – mit massiven Datenschutz- und Leak-Risiken – oder lokale Modelle bleiben isoliert und unwissend.
+Enterprises and developers face a dilemma: either send confidential internal knowledge bases (like Obsidian Markdown Vaults) to US cloud providers—incurring significant privacy and leak risks—or leave local models isolated without contextual knowledge.
 
-`local-ai-worker` löst dieses Problem:
-1. **100% Local-First & Zero Cloud Leaks:** Alle Inferenz- und RAG-Schritte laufen autark auf der eigenen Hardware (`127.0.0.1:11434` Ollama). Kein einziges Byte verlässt das System.
-2. **Obsidian Vault RAG:** Direkte Einbindung lokaler Markdown-Verzeichnisse. Automatischer Parser für Frontmatter, Headings, `#level-...` Knotenhierarchien und In-Memory Okapi BM25 Indexierung (< 5 ms Reaktionszeit).
-3. **Lernfähigkeit durch Feedback-Loops:** Korrigiert der Benutzer oder Vorgesetzte eine ungenaue Antwort, speichert der Worker die Regel verschlüsselt im Vault. Zukünftige Abfragen werden automatisch mit Few-Shot Alignment-Regeln angereichert.
-4. **Vision & CAD-Inspektion:** Direkte visuelle Analyse von technischen Zeichnungen, UI-Mockups und Screenshots über lokale Vision-Modelle (`llava:7b`).
-5. **Vordefinierte Assistenzaufgaben:** Schnelle Generierung von Text-Zusammenfassungen, E-Mail-Entwürfen, CAD-Metadaten-Extraktion und automatisierten Vault-Graph-Audits.
+`local-ai-worker` solves this challenge:
+1. **100% Local-First & Zero Cloud Leaks:** All inference and RAG indexing run self-contained on local hardware (`127.0.0.1:11434` Ollama). Not a single byte leaves the machine.
+2. **Obsidian Vault RAG:** Direct integration with local Markdown folders. Automatic parser for frontmatter, headings, `#level-...` node hierarchies, and in-memory Okapi BM25 indexing (< 5 ms retrieval latency).
+3. **Continuous Feedback Learning Loops:** When a user or supervisor submits a correction, the worker securely stores the alignment rule in an encrypted vault. Future requests are automatically augmented with few-shot guidance.
+4. **Vision & CAD Inspection:** Direct visual analysis of technical schematics, UI mockups, and screenshots via local vision models (`llava:7b`).
+5. **Predefined Assistance Tasks:** Rapid generation of summaries, email drafts, CAD metadata extraction, and automated vault graph audits.
 
 ---
 
-## 🛡️ Echte Sicherheit aus dem Effeff (Zero-Dummy-Security)
+## 🛡️ Zero-Dummy-Security (Production-Hardened by Default)
 
-Keine billige Scheinsicherheit, sondern echte Produktionshärtung ab Werk:
-- **AES-256-GCM Verschlüsselung:** Alle gespeicherten Feedback-Historien, Notizen-Caches und Konfigurationen werden kryptografisch geschützt (`data/worker_vault.enc`).
-- **PBKDF2 Schlüsselableitung:** Mindestens **100.000 Iterationen** mit SHA-256 und 32-Byte kryptografischem Salt.
-- **Strict Localhost Isolation:** Der Dienst bindet ausschließlich an `127.0.0.1:<port>`. Keine Exposition im LAN oder Internet ohne Reverse Proxy.
-- **Kryptografische Authentifizierung:** Jeder API-Aufruf erfordert ein 32-Byte CSPRNG Token (`X-Worker-Token`).
-- **Anti-DNS-Rebinding:** Strikte Validierung des HTTP-`Host`-Headers. Fremde Domains werden sofort mit HTTP 403 abgewiesen.
-- **Anti-CSRF:** Valider `Origin`-Filter verhindert Cross-Origin Attacken aus dem Browser.
+No superficial security, but genuine production hardening:
+- **AES-256-GCM Encryption:** All stored feedback histories, note caches, and configurations are cryptographically protected (`data/worker_vault.enc`).
+- **PBKDF2 Key Derivation:** At least **100,000 iterations** with SHA-256 and a 32-byte cryptographic salt.
+- **Strict Localhost Isolation:** The service strictly binds to `127.0.0.1:<port>`. No exposure to LAN or public interfaces without a reverse proxy.
+- **Cryptographic Token Authentication:** Every API request requires a 32-byte CSPRNG token (`X-Worker-Token`).
+- **Anti-DNS-Rebinding:** Strict HTTP `Host` header validation rejects foreign hostnames with HTTP 403.
+- **Anti-CSRF:** Valid `Origin` filter prevents cross-origin browser attacks.
 
 ---
 
@@ -47,15 +47,15 @@ go install github.com/benzjeremy/local-ai-worker@latest
 ```bash
 tar -xzf local-ai-worker-v1.0-linux.tar.gz
 sudo cp local-ai-worker /usr/local/bin/
-local-ai-worker --vault-dir /pfad/zum/obsidian_vault
+local-ai-worker --vault-dir /path/to/obsidian_vault
 ```
 
 ### Windows (x86_64):
-Entpacke `local-ai-worker-v1.0-windows.zip` und starte `local-ai-worker.exe` in der Eingabeaufforderung.
+Extract `local-ai-worker-v1.0-windows.zip` and run `local-ai-worker.exe` in your terminal.
 
 ---
 
-## 🚀 CLI-Flags
+## 🚀 CLI Flags
 
 ```text
 Usage of local-ai-worker:
@@ -72,31 +72,31 @@ Usage of local-ai-worker:
 
 ---
 
-## 🌐 REST API Endpunkte
+## 🌐 REST API Endpoints
 
-Alle Endpunkte (außer `/health`) erfordern den Header `X-Worker-Token: <token>`.
+All endpoints (except `/health`) require the header `X-Worker-Token: <token>`.
 
-| Methode | Pfad | Beschreibung |
+| Method | Path | Description |
 |---|---|---|
-| `GET` | `/health` | Health-Check, Versionsstatus und Anzahl indizierter Notizen |
-| `POST` | `/ask` | Semantische RAG-Wissensabfrage auf den Obsidian-Vault |
-| `POST` | `/feedback` | Korrektur einreichen (wird verschlüsselt gespeichert & gelernt) |
-| `POST` | `/vision/analyze` | Bild- & CAD-Analyse via lokales Vision-Modell |
-| `POST` | `/task/run` | Assistenzaufgabe ausführen (`summarize`, `email_draft`, `vault_audit`) |
-| `POST` | `/knowledge/scan` | Manueller Re-Scan und Re-Index des Vaults |
-| `GET` | `/knowledge/stats`| Statistiken über indizierte Notizen und Feedback-Historie |
+| `GET` | `/health` | Health check, version status, and indexed note counts |
+| `POST` | `/ask` | Semantic RAG knowledge query against local Obsidian Vault |
+| `POST` | `/feedback` | Submit correction (encrypted, saved, and learned) |
+| `POST` | `/vision/analyze` | Image and CAD analysis via local vision model |
+| `POST` | `/task/run` | Execute assistance task (`summarize`, `email_draft`, `vault_audit`) |
+| `POST` | `/knowledge/scan` | Manual re-scan and re-index of vault |
+| `GET` | `/knowledge/stats`| Statistics on indexed notes and feedback history |
 
 ---
 
-## 👥 Mitwirkende & Credits
+## 👥 Contributors & Credits
 
-- **Jeremy Benz** ([@benzjeremy](https://github.com/benzjeremy) & [@jbenz1706](https://github.com/jbenz1706)) – Projektgründer & Lead Developer
-- **AI-Assistenten (Pair Programming):** Google Antigravity & Claude Code
+- **Jeremy Benz** ([@benzjeremy](https://github.com/benzjeremy) & [@jbenz1706](https://github.com/jbenz1706)) – Project Founder & Lead Developer
+- **AI Assistants (Pair Programming):** Google Antigravity & Claude Code
 - © 2026 Jeremy Benz
 
 ---
 
-## 📄 Lizenz
+## 📄 License
 
-Dieses Projekt steht unter der **GNU General Public License, Version 3 (GPL-3.0)**.  
-Weitere Informationen: [Offizielle Lizenz (GPL-3.0)](https://github.com/benzjeremy/local-ai-worker/blob/main/LICENSE)
+This project is licensed under the **GNU General Public License, Version 3 (GPL-3.0)**.  
+See [LICENSE](LICENSE) for details.
